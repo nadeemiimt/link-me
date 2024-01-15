@@ -115,7 +115,10 @@ https://youtu.be/eMELJ7ISPGg
 
 ## API Reference
 
-# LinkMe API
+### Swagger
+https://github.com/nadeemiimt/link-me/blob/master/linkme-api/src/main/resources/link-me.yaml
+
+# LinkMe API Markdown
 Job Portal.
 
 ## Version: 1.0

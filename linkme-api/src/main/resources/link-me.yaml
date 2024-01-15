@@ -1,0 +1,1184 @@
+openapi: 3.0.1
+info:
+  title: LinkMe API
+  description: Job Portal.
+  contact:
+    name: Mohd Nadeem
+    url: www.mohdnadeem.in
+    email: nadeemiimt@gmail.com
+  license:
+    name: License of API
+  version: '1.0'
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+security:
+  - "Bearer-Authentication": []
+paths:
+  /api/users/{userId}:
+    get:
+      tags:
+        - user-resource
+      operationId: getUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - user-resource
+      operationId: updateUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - user-resource
+      operationId: deleteUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/userJobApplications/{applicationId}:
+    get:
+      tags:
+        - user-job-application-resource
+      operationId: getUserJobApplication
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserJobApplicationDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - user-job-application-resource
+      operationId: updateUserJobApplication
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserJobApplicationDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - user-job-application-resource
+      operationId: deleteUserJobApplication
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/skills/{skillId}:
+    get:
+      tags:
+        - skill-resource
+      operationId: getSkill
+      parameters:
+        - name: skillId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - skill-resource
+      operationId: updateSkill
+      parameters:
+        - name: skillId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - skill-resource
+      operationId: deleteMessage
+      parameters:
+        - name: skillId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/salaryComparisons/{comparisonId}:
+    get:
+      tags:
+        - salary-comparison-resource
+      operationId: getSalaryComparison
+      parameters:
+        - name: comparisonId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalaryComparisonDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - salary-comparison-resource
+      operationId: updateSalaryComparison
+      parameters:
+        - name: comparisonId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalaryComparisonDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - salary-comparison-resource
+      operationId: deleteSalaryComparison
+      parameters:
+        - name: comparisonId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/messages/{messageId}:
+    get:
+      tags:
+        - message-resource
+      operationId: getMessage
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - message-resource
+      operationId: updateMessage
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - message-resource
+      operationId: deleteMessage_1
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/jobListings/{jobId}:
+    get:
+      tags:
+        - job-listing-resource
+      operationId: getJobListing
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobListingDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - job-listing-resource
+      operationId: updateJobListing
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobListingDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - job-listing-resource
+      operationId: deleteJobListing
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /rest/auth/register:
+    post:
+      tags:
+        - auth-controller
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /rest/auth/login:
+    post:
+      tags:
+        - auth-controller
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginReq'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/userJobApplications:
+    get:
+      tags:
+        - user-job-application-resource
+      operationId: getAllUserJobApplications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserJobApplicationDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - user-job-application-resource
+      operationId: createUserJobApplication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserJobApplicationDTO'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/skills:
+    get:
+      tags:
+        - skill-resource
+      operationId: getAllMessages
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SkillDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - skill-resource
+      operationId: createSkill
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillDTO'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/salaryComparisons:
+    get:
+      tags:
+        - salary-comparison-resource
+      operationId: getAllSalaryComparisons
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SalaryComparisonDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - salary-comparison-resource
+      operationId: createSalaryComparison
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalaryComparisonDTO'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/profiles:
+    post:
+      tags:
+        - profile-resource
+      operationId: upsertUserProfile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - body
+                - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                body:
+                  $ref: '#/components/schemas/ProfileDTO'
+          application/octet-stream:
+            schema:
+              required:
+                - body
+                - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                body:
+                  $ref: '#/components/schemas/ProfileDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/messages:
+    get:
+      tags:
+        - message-resource
+      operationId: getAllMessages_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - message-resource
+      operationId: createMessage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageDTO'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/jobListings:
+    get:
+      tags:
+        - job-listing-resource
+      operationId: getAllJobListings
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 10
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageJobListingDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - job-listing-resource
+      operationId: createJobListing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobListingDTO'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/jobListings/search:
+    post:
+      tags:
+        - job-listing-resource
+      operationId: getJobListingByKeywords
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobListingDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/users:
+    get:
+      tags:
+        - user-resource
+      operationId: getAllUsers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/profiles/{email}:
+    get:
+      tags:
+        - profile-resource
+      operationId: getProfileByEmail
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileDTO'
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/profiles/resume/{fileKey}:
+    get:
+      tags:
+        - profile-resource
+      operationId: downloadResume
+      parameters:
+        - name: fileKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        '400':
+          description: Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        httpStatus:
+          type: integer
+          format: int32
+        exception:
+          type: string
+        message:
+          type: string
+        fieldErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldError'
+    FieldError:
+      type: object
+      properties:
+        field:
+          type: string
+        errorCode:
+          type: string
+    UserDTO:
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        skills:
+          type: string
+        experience:
+          type: string
+        location:
+          type: string
+        email:
+          maxLength: 255
+          minLength: 0
+          type: string
+        password:
+          maxLength: 255
+          minLength: 0
+          type: string
+        recruiter:
+          type: boolean
+        name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        education:
+          type: string
+        otherProfileDetails:
+          type: string
+    UserJobApplicationDTO:
+      type: object
+      properties:
+        applicationId:
+          type: integer
+          format: int32
+        applicationDate:
+          type: string
+          format: date-time
+        status:
+          maxLength: 50
+          minLength: 0
+          type: string
+        user:
+          type: integer
+          format: int32
+        job:
+          type: integer
+          format: int32
+    SkillDTO:
+      type: object
+      properties:
+        skillId:
+          type: integer
+          format: int32
+        skillName:
+          type: string
+        active:
+          type: boolean
+    SalaryComparisonDTO:
+      type: object
+      properties:
+        comparisonId:
+          type: integer
+          format: int32
+        salaryAmount:
+          type: string
+          example: '70.08'
+        location:
+          maxLength: 100
+          minLength: 0
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        job:
+          type: integer
+          format: int32
+    MessageDTO:
+      type: object
+      properties:
+        messageId:
+          type: integer
+          format: int32
+        messageText:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          maxLength: 50
+          minLength: 0
+          type: string
+        sender:
+          type: integer
+          format: int32
+        receiver:
+          type: integer
+          format: int32
+    JobListingDTO:
+      type: object
+      properties:
+        jobId:
+          type: integer
+          format: int32
+        skills:
+          type: array
+          items:
+            type: string
+        jobRole:
+          maxLength: 100
+          minLength: 0
+          type: string
+        jobType:
+          maxLength: 100
+          minLength: 0
+          type: string
+        experience:
+          type: string
+          example: '90.08'
+        location:
+          maxLength: 100
+          minLength: 0
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        company:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          type: string
+        salary:
+          type: string
+          example: '90.08'
+        requirements:
+          type: string
+        otherJobDetails:
+          type: string
+        postedOn:
+          type: string
+          format: date-time
+        jobLink:
+          type: string
+        postedBy:
+          type: integer
+          format: int32
+        applicationStatus:
+          type: string
+    LoginReq:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    ProfileDTO:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        skills:
+          type: array
+          items:
+            type: string
+        workExperience:
+          type: string
+        location:
+          type: string
+        profileId:
+          type: integer
+          format: int32
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        education:
+          type: string
+        fileUrl:
+          type: string
+    Job:
+      type: object
+      properties:
+        jobId:
+          type: integer
+          format: int32
+        skills:
+          type: array
+          items:
+            type: string
+        jobRole:
+          maxLength: 100
+          minLength: 0
+          type: string
+        jobType:
+          maxLength: 100
+          minLength: 0
+          type: string
+        experience:
+          type: string
+          example: '90.08'
+        location:
+          maxLength: 100
+          minLength: 0
+          type: string
+    PageJobListingDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        last:
+          type: boolean
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobListingDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        numberOfElements:
+          type: integer
+          format: int32
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+    SortObject:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        unsorted:
+          type: boolean
+        sorted:
+          type: boolean
+  securitySchemes:
+    "Bearer-Authentication":
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
