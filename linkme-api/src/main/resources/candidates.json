@@ -1,0 +1,47 @@
+[
+  {
+    "userId": 10012,
+    "location": "Bangalore",
+    "experience": 0.00,
+    "skills": [
+      "java",
+      "c#",
+      "Java-Script",
+      "json",
+      "html",
+      "html5",
+      "css"
+    ]
+  },
+  {
+    "userId": 10020,
+    "location": "Washington",
+    "experience": 5.00,
+    "skills": [
+      "java",
+      "python",
+      "golang"
+    ]
+  },
+  {
+    "userId": 10024,
+    "location": "Belgium",
+    "experience": 8.5,
+    "skills": [
+      "java"
+    ]
+  },
+  {
+    "userId": 10026,
+    "location": "Munich",
+    "experience": 10.0,
+    "skills": [
+      "Java-Script",
+      "json",
+      "html",
+      "html5",
+      "css",
+      "team-management"
+    ]
+  }
+]

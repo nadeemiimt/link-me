@@ -1,0 +1,55 @@
+[
+  {
+    "jobId": 10012,
+    "jobRole": "Frontend-Developer",
+    "jobType": "Full-Time",
+    "location": "In-Office",
+    "experience": 0.00,
+    "skills": [
+      "java",
+      "c#",
+      "Java-Script",
+      "json",
+      "html",
+      "html5",
+      "css"
+    ]
+  },
+  {
+    "jobId": 10020,
+    "jobRole": "Backend-Developer",
+    "jobType": "Part-Time",
+    "location": "Remote",
+    "experience": 5.00,
+    "skills": [
+      "java",
+      "python",
+      "golang"
+    ]
+  },
+  {
+    "jobId": 10024,
+    "jobRole": "Fullstack-Developer",
+    "jobType": "Contract",
+    "location": "In-Office",
+    "experience": 8.5,
+    "skills": [
+      "java"
+    ]
+  },
+  {
+    "jobId": 10026,
+    "jobRole": "Lead-Developer",
+    "jobType": "Full-Time",
+    "location": "In-Office",
+    "experience": 10.0,
+    "skills": [
+      "Java-Script",
+      "json",
+      "html",
+      "html5",
+      "css",
+      "team-management"
+    ]
+  }
+]
