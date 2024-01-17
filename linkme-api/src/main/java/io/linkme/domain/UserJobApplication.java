@@ -35,7 +35,7 @@ public class UserJobApplication {
     )
     private Integer applicationId;
 
-    @Column(columnDefinition = "datetime2")
+    @Column(columnDefinition = "datetime")
     private OffsetDateTime applicationDate;
 
     @Column(length = 50)

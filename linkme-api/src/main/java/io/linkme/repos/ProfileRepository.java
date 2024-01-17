@@ -7,5 +7,6 @@ import java.util.Optional;
 
 
 public interface ProfileRepository extends JpaRepository<Profile, Integer> {
-    Optional<Profile> findByEmail(String email);
+    Optional<Profile> findByEmailAndActive(String email, Boolean active);
+    Optional<Profile> findByProfileIdAndActive(Integer profileId, Boolean active);
 }

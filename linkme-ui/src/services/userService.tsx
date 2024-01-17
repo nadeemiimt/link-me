@@ -57,6 +57,8 @@ export const updateProfile = async (formData: any, jwtToken: any, file: any, use
   const workExperience: string = formData.workExperience;
   const education: string = formData.education;
   const email: string = formData.email;
+  const salary: string = formData.salary;
+  const currencyCode: string = formData.currencyCode;
 
   var formInputData = new FormData();
 
@@ -69,7 +71,9 @@ export const updateProfile = async (formData: any, jwtToken: any, file: any, use
     workExperience: workExperience,
     education: education,
     location: formData.location,
-    userId: userId
+    userId: userId,
+    salary: salary,
+    currencyCode: currencyCode
   })], { type: "application/json" }));
 
   var myHeaders = new Headers();
@@ -90,6 +94,24 @@ export const updateProfile = async (formData: any, jwtToken: any, file: any, use
   }
 
   return response;
+}
+
+export const getSalaryComparisonData = (profileId: string, jwtToken: string) => {
+  var myHeaders = new Headers();
+  myHeaders.append("Accept", "application/json");  // multipart/form-data
+  setBearerToken(myHeaders, jwtToken);
+
+  var requestOptions: RequestInit = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  return fetch(`${API_BASE_URL}/api/salaryComparisons/${profileId}`, requestOptions)
+    .then(response => response ? response.json() : '')
+    .catch(error => {
+      console.log('no profile', error);
+    });
 }
 
 export const loadProfileByEmail = (jwtToken: string, email: string) => {

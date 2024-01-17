@@ -10,8 +10,8 @@ import java.util.Optional;
 
 
 public interface ProfileRepository extends JpaRepository<Profile, Integer> {
-    Optional<Profile> findByEmail(String email);
+    Optional<Profile> findByEmailAndActive(String email, Boolean active);
 
-    @Query("SELECT NEW io.linkme.scheduler.dto.ProfileInfo(p.email, p.firstName, p.lastName, p.skills) FROM Profile p WHERE p.skills IS NOT EMPTY AND p.active = true")
+    @Query("SELECT NEW io.linkme.scheduler.model.ProfileInfo(p.email, p.firstName, p.lastName, p.skills) FROM Profile p WHERE p.skills IS NOT EMPTY AND p.active = true")
     List<ProfileInfo> findUserEmailNameAndSkillsWithNonNullProfile();
 }

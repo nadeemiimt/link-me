@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 
@@ -37,7 +38,10 @@ public class Profile {
     private String lastName;
 
     @Column(nullable = false)
-    private String workExperience;
+    private BigDecimal workExperience;
+
+    @Column(nullable = false)
+    private String location;
 
     @Column(nullable = false)
     private String education;
@@ -45,6 +49,18 @@ public class Profile {
     @Column(nullable = false)
     private String fileUrl;
 
+    @Column
+    private BigDecimal salary;
+
+    @Column
+    private String currencyCode;
+
+    @Column(nullable = false)
+    private Boolean active;
+
     @OneToMany(mappedBy = "profile")
     private Set<ProfileSkill> skills;
+
+    @OneToOne(mappedBy = "profile")
+    private SalaryComparison jobSalaryComparison;
 }

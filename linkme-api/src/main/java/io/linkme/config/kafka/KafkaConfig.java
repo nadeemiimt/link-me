@@ -14,6 +14,8 @@ public class KafkaConfig {
 
     @Value("${topic.candidate.name}")
     private String candidateTopicName;
+    @Value("${topic.salary.comparison.name}")
+    private String salaryComparisonTopicName;
 
     @Bean
     public NewTopic jobTopicTask() {
@@ -26,6 +28,14 @@ public class KafkaConfig {
     @Bean
     public NewTopic candidateTopicTask() {
         return TopicBuilder.name(candidateTopicName)
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
+
+    @Bean
+    public NewTopic salaryComparisonTopicTask() {
+        return TopicBuilder.name(salaryComparisonTopicName)
                 .partitions(1)
                 .replicas(1)
                 .build();

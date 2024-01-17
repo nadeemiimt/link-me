@@ -3,6 +3,8 @@ package io.linkme.service.contracts;
 import io.linkme.domain.JobListing;
 import io.linkme.model.JobListingDTO;
 import io.linkme.model.ProfileModel;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,4 +20,5 @@ public interface ElasticSearchSearcher {
     Boolean upsertJobInElasticSearch(Integer jobId, JobListing jobListing, List<String> skills);
 
     Boolean upsertCandidateInElasticSearch(Integer userId, ProfileModel userDTO);
+    Double compareCandidateSalary(SearchSourceBuilder searchSourceBuilder, String responseField);
 }

@@ -35,10 +35,10 @@ public class Message {
     )
     private Integer messageId;
 
-    @Column(columnDefinition = "varchar(max)")
+    @Column(columnDefinition = "text")
     private String messageText;
 
-    @Column(columnDefinition = "datetime2")
+    @Column(columnDefinition = "datetime")
     private OffsetDateTime timestamp;
 
     @Column(length = 50)

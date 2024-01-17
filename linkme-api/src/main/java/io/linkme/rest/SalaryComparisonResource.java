@@ -28,39 +28,10 @@ public class SalaryComparisonResource {
         this.salaryComparisonService = salaryComparisonService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<SalaryComparisonDTO>> getAllSalaryComparisons() {
-        return ResponseEntity.ok(salaryComparisonService.findAll());
-    }
-
-    @GetMapping("/{comparisonId}")
-    public ResponseEntity<SalaryComparisonDTO> getSalaryComparison(
-            @PathVariable(name = "comparisonId") final Integer comparisonId) {
-        return ResponseEntity.ok(salaryComparisonService.get(comparisonId));
-    }
-
-    @PostMapping
-    @ApiResponse(responseCode = "201")
-    public ResponseEntity<Integer> createSalaryComparison(
-            @RequestBody @Valid final SalaryComparisonDTO salaryComparisonDTO) {
-        final Integer createdComparisonId = salaryComparisonService.create(salaryComparisonDTO);
-        return new ResponseEntity<>(createdComparisonId, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{comparisonId}")
-    public ResponseEntity<Integer> updateSalaryComparison(
-            @PathVariable(name = "comparisonId") final Integer comparisonId,
-            @RequestBody @Valid final SalaryComparisonDTO salaryComparisonDTO) {
-        salaryComparisonService.update(comparisonId, salaryComparisonDTO);
-        return ResponseEntity.ok(comparisonId);
-    }
-
-    @DeleteMapping("/{comparisonId}")
-    @ApiResponse(responseCode = "204")
-    public ResponseEntity<Void> deleteSalaryComparison(
-            @PathVariable(name = "comparisonId") final Integer comparisonId) {
-        salaryComparisonService.delete(comparisonId);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/{profileId}")
+    public ResponseEntity<SalaryComparisonDTO> getSalaryComparisonByProfileId(
+            @PathVariable(name = "profileId") final Integer profileId) {
+        return ResponseEntity.ok(salaryComparisonService.findSalaryComparisonByProfileId(profileId));
     }
 
 }

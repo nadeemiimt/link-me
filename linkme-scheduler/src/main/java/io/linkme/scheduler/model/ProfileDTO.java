@@ -17,5 +17,6 @@ public class ProfileDTO extends ProfileModel {
     private String lastName;
     private String education;
     private String fileUrl;
+    private Boolean active;
 
 }

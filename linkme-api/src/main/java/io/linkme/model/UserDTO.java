@@ -15,12 +15,6 @@ import lombok.Setter;
 public class UserDTO {
     private Integer userId;
 
-    private String skills;
-
-    private String experience;
-
-    private String location;
-
     @NotNull
     @Size(max = 255)
     private String email;
@@ -33,8 +27,6 @@ public class UserDTO {
 
     @Size(max = 100)
     private String name;
-
-    private String education;
 
     private String otherProfileDetails;
 

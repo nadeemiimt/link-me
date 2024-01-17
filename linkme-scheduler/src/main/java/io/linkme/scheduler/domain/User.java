@@ -45,19 +45,7 @@ public class User {
     @Column(length = 100)
     private String name;
 
-    @Column(columnDefinition = "varchar(max)")
-    private String skills;
-
-    @Column(columnDefinition = "varchar(max)")
-    private String education;
-
-    @Column(columnDefinition = "varchar(max)")
-    private String experience;
-
-    @Column(columnDefinition = "varchar(max)")
-    private String location;
-
-    @Column(columnDefinition = "varchar(max)")
+    @Column(columnDefinition = "text")
     private String otherProfileDetails;
 
     @OneToMany(mappedBy = "user")

@@ -120,9 +120,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
         userDTO.setName(user.getName());
-        userDTO.setSkills(user.getSkills());
-        userDTO.setEducation(user.getEducation());
-        userDTO.setExperience(user.getExperience());
         userDTO.setOtherProfileDetails(user.getOtherProfileDetails());
         userDTO.setRecruiter(user.getRecruiter());
         userDTO.setRecruiter(user.getRecruiter());
@@ -134,9 +131,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
         user.setName(userDTO.getName());
-        user.setSkills(userDTO.getSkills());
-        user.setEducation(userDTO.getEducation());
-        user.setExperience(userDTO.getExperience());
         user.setOtherProfileDetails(userDTO.getOtherProfileDetails());
         user.setRecruiter(userDTO.getRecruiter());
         return user;

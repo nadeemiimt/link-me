@@ -16,6 +16,7 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.aggregations.metrics.Avg;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +68,33 @@ public class ElasticSearchSearcherImpl implements ElasticSearchSearcher {
         }
 
         return results;
+    }
+
+    public Double compareCandidateSalary(SearchSourceBuilder searchSourceBuilder, String responseField) {
+        Double response = null;
+        try {
+            SearchRequest searchRequest = new SearchRequest(CANDIDATE_INDEX_NAME);
+            searchRequest.source(searchSourceBuilder);
+
+            SearchResponse searchResponse = esClient.getClient().search(searchRequest, RequestOptions.DEFAULT);
+
+            // Accessing the aggregation result
+            Avg avgAggregation = searchResponse.getAggregations().get(responseField);
+
+            // Checking if the aggregation result is not null
+            if (avgAggregation != null) {
+                // Accessing the average salary value
+                response = avgAggregation.getValue();
+            } else {
+                LOGGER.info("Response value is {}", response);
+            }
+
+            // Process the search response as needed
+        } catch (IOException e) {
+            LOGGER.error("Error in es salary comparison query", e);
+        }
+
+        return response;
     }
 
     /**
@@ -157,6 +185,8 @@ public class ElasticSearchSearcherImpl implements ElasticSearchSearcher {
         map.put("skills", userDTO.getSkills().stream().map(skill-> combineWordsWithHyphen(skill)).collect(Collectors.toList()));
         map.put("location", combineWordsWithHyphen(userDTO.getLocation()));
         map.put("experience", userDTO.getWorkExperience());
+        map.put("salary", userDTO.getSalary());
+        map.put("currencyCode", userDTO.getCurrencyCode());
 
         return upsertRecords(map, "userId", CANDIDATE_INDEX_NAME);
     }

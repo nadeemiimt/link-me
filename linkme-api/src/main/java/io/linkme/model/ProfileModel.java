@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -16,7 +17,9 @@ public class ProfileModel {
 
     private List<String> skills;
 
-    private String workExperience;
+    private BigDecimal workExperience;
 
     private String location;
+    private BigDecimal salary;
+    private String currencyCode;
 }

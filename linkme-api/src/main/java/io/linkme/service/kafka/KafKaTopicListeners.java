@@ -2,7 +2,9 @@ package io.linkme.service.kafka;
 
 import io.linkme.model.JobListingDTO;
 import io.linkme.model.ProfileModel;
+import io.linkme.model.SalaryComparisonEvent;
 import io.linkme.service.elasticSearch.ElasticSearchSearcherImpl;
+import io.linkme.service.user.SalaryComparisonService;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +16,12 @@ import org.springframework.stereotype.Component;
 public class KafKaTopicListeners {
 
     private final ElasticSearchSearcherImpl elasticSearchSearcherImpl;
+    private final SalaryComparisonService salaryComparisonService;
 
-    public KafKaTopicListeners(ElasticSearchSearcherImpl elasticSearchSearcherImpl) {
+    public KafKaTopicListeners(final ElasticSearchSearcherImpl elasticSearchSearcherImpl,
+                               final SalaryComparisonService salaryComparisonService) {
         this.elasticSearchSearcherImpl = elasticSearchSearcherImpl;
+        this.salaryComparisonService = salaryComparisonService;
     }
 
     private final Logger logger = LoggerFactory.getLogger(KafKaTopicListeners.class);
@@ -41,5 +46,16 @@ public class KafKaTopicListeners {
 
         logger.info(String.format("New candidate profile is received : " + profileModel));
         elasticSearchSearcherImpl.upsertCandidateInElasticSearch(profileModel.getUserId(), profileModel);
+    }
+
+    /**
+     * Event will be received once candidate creates or updates his profile
+     * @param salaryComparisonEvent
+     */
+    @KafkaListener(topics = "${topic.salary.comparison.name}", groupId = "salary-comparison-group")
+    public void consumeSalaryComparisonUpdate(SalaryComparisonEvent salaryComparisonEvent) {
+
+        logger.info(String.format("Update salary comparison even is received : " + salaryComparisonEvent));
+        salaryComparisonService.upsert(salaryComparisonEvent.getProfileId());
     }
 }

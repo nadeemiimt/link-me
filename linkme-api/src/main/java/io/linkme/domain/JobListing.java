@@ -36,7 +36,7 @@ public class JobListing {
     @Column
     private String company;
 
-    @Column(columnDefinition = "varchar(max)")
+    @Column(columnDefinition = "text")
     private String description;
 
     @Column(length = 100)
@@ -54,10 +54,10 @@ public class JobListing {
     @Column(precision = 20, scale = 2)
     private BigDecimal salary;
 
-    @Column(columnDefinition = "varchar(max)")
+    @Column(columnDefinition = "text")
     private String requirements;
 
-    @Column(columnDefinition = "varchar(max)")
+    @Column(columnDefinition = "text")
     private String otherJobDetails;
 
     @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
@@ -75,9 +75,6 @@ public class JobListing {
 
     @OneToMany(mappedBy = "job")
     private Set<UserJobApplication> jobUserJobApplications;
-
-    @OneToMany(mappedBy = "job")
-    private Set<SalaryComparison> jobSalaryComparisons;
 
     @PrePersist
     protected void onCreate() {

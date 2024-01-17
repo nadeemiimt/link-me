@@ -11,7 +11,9 @@
       "html",
       "html5",
       "css"
-    ]
+    ],
+    "salary": 100,
+    "currencyCode": "INR"
   },
   {
     "userId": 10020,
@@ -21,7 +23,9 @@
       "java",
       "python",
       "golang"
-    ]
+    ],
+    "salary": 200,
+    "currencyCode": "INR"
   },
   {
     "userId": 10024,
@@ -29,7 +33,9 @@
     "experience": 8.5,
     "skills": [
       "java"
-    ]
+    ],
+    "salary": 10000.50,
+    "currencyCode": "INR"
   },
   {
     "userId": 10026,
@@ -42,6 +48,8 @@
       "html5",
       "css",
       "team-management"
-    ]
+    ],
+    "salary": 1540,
+    "currencyCode": "INR"
   }
 ]

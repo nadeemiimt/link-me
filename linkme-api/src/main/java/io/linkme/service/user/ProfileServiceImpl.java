@@ -51,7 +51,7 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public ProfileDTO getByEmail(final String email) {
-        Optional<Profile> profile =  profileRepository.findByEmail(email);
+        Optional<Profile> profile =  profileRepository.findByEmailAndActive(email, true);
 
         // Fetch JobSkills for each JobListing
         if (profile.isPresent()) {
@@ -208,6 +208,15 @@ public class ProfileServiceImpl implements ProfileService {
         profile.setEducation(profileDTO.getEducation());
         profile.setWorkExperience(profileDTO.getWorkExperience());
         profile.setFileUrl(profileDTO.getFileUrl());
+        profile.setLocation(profileDTO.getLocation());
+        profile.setSalary(profileDTO.getSalary());
+        profile.setCurrencyCode(profileDTO.getCurrencyCode());
+
+        if(profileDTO.getActive() == null) {
+            profile.setActive(true);
+        } else {
+            profile.setActive(profileDTO.getActive());
+        }
         return profile;
     }
 

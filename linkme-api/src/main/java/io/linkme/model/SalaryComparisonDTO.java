@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,17 +17,11 @@ import lombok.Setter;
 public class SalaryComparisonDTO {
 
     private Integer comparisonId;
-
-    @Digits(integer = 20, fraction = 2)
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    @Schema(type = "string", example = "70.08")
+    private Integer profileId;
     private BigDecimal salaryAmount;
-
-    @Size(max = 100)
     private String location;
-
-    private OffsetDateTime timestamp;
-
-    private Integer job;
+    private String status;
+    private Date updatedOn;
+    private BigDecimal employeeMidPointSalaryForLocation;
 
 }
