@@ -83,15 +83,27 @@ https://youtu.be/QgRTrXLiQ5s
 
 ## Screenshots
 
+### Job List
+
 ![App Screenshot](https://i.ibb.co/5x3v86t/Screenshot-2024-01-15-at-10-47-03-PM.png)
+
+### Saved Profile
 
 ![App Screenshot](https://i.ibb.co/SfyGhqs/Screenshot-2024-01-15-at-10-47-18-PM.png)
 
+### Update Profile and Logout
+
 ![App Screenshot](https://i.ibb.co/D4t44vz/Screenshot-2024-01-15-at-10-48-23-PM.png)
+
+### Chat
 
 ![App Screenshot](https://i.ibb.co/j5nvsGm/Screenshot-2024-01-15-at-10-48-39-PM.png)
 
+### Salary comparison
+
 ![App Screenshot](https://i.ibb.co/sv9pfwD/Screenshot-2024-01-17-at-11-22-57-PM.png)
+
+
 ## Features
 
 - Login / Register
