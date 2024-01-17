@@ -74,7 +74,7 @@ password: test2
 
 ## Demo
 
-https://youtu.be/eMELJ7ISPGg
+https://youtu.be/QgRTrXLiQ5s
 
 
 
@@ -89,7 +89,7 @@ https://youtu.be/eMELJ7ISPGg
 
 ![App Screenshot](https://i.ibb.co/j5nvsGm/Screenshot-2024-01-15-at-10-48-39-PM.png)
 
-
+![App Screenshot](https://i.ibb.co/sv9pfwD/Screenshot-2024-01-17-at-11-22-57-PM.png)
 ## Features
 
 - Login / Register
@@ -99,6 +99,7 @@ https://youtu.be/eMELJ7ISPGg
 - Elastic search query for better search performance
 - Kafka Producer and Consumer for event based , non blocking operations
 - Upload resume and download resume from external file storage (File.IO)
+- Compare salary
 - Scheduler for recommendation engine with email integration
 - Dummy chat UI
 
@@ -262,7 +263,7 @@ nadeemiimt@gmail.com
 | 204 | No Content |
 | 400 | Error |
 
-### /api/salaryComparisons/{comparisonId}
+### /api/salaryComparisons/{profileId}
 
 #### GET
 ##### Parameters
@@ -276,34 +277,6 @@ nadeemiimt@gmail.com
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
-| 400 | Error |
-
-#### PUT
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| comparisonId | path |  | Yes | integer |
-
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | OK |
-| 400 | Error |
-
-#### DELETE
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| comparisonId | path |  | Yes | integer |
-
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 204 | No Content |
 | 400 | Error |
 
 ### /api/messages/{messageId}
@@ -431,24 +404,6 @@ nadeemiimt@gmail.com
 | 400 | Error |
 
 ### /api/skills
-
-#### GET
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | OK |
-| 400 | Error |
-
-#### POST
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 201 | Created |
-| 400 | Error |
-
-### /api/salaryComparisons
 
 #### GET
 ##### Responses
